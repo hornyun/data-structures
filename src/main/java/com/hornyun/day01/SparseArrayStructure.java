@@ -6,6 +6,8 @@ import org.apache.commons.lang3.ArrayUtils;
 /**
  * @author hornyun
  * @date 2020/10/15 11:38 下午
+ *
+ * 稀疏组数的解压与压缩
  */
 public class SparseArrayStructure {
 
