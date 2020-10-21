@@ -94,7 +94,7 @@ public class PracticeSingleLinkedListMain {
         }
     }
 
-//    private static String print(HeroElement element,String elementInfo) {
+    //    private static String print(HeroElement element,String elementInfo) {
 //        if (element.getNext() != null) {
 //            element = element.getNext();
 //            return print(element,elementInfo);
@@ -103,10 +103,43 @@ public class PracticeSingleLinkedListMain {
 //        }
 //    }
 
+    /**
+     * 合并两个有序的链表
+     *
+     * @param list1 链表1
+     * @param list2 链表2
+     * @return 合并后的结果
+     */
+    public static SingleLinkedList mergeSingleLinkedList(SingleLinkedList list1, SingleLinkedList list2) {
+        if (getLinkedListSize(list1) == 0) {
+            return list2;
+        } else if (getLinkedListSize(list2) == 0) {
+            return list1;
+        } else {
+            SingleLinkedList singleLinkedList = new SingleLinkedList();
+            HeroElement head1 = list1.getHead();
+            HeroElement head2 = list2.getHead();
+
+            while (head1.getNext() != null) {
+                HeroElement element = copyHeroElement(head1.getNext());
+                singleLinkedList.add(element);
+                head1 = head1.getNext();
+            }
+
+            while (head2.getNext() != null) {
+                HeroElement element = copyHeroElement(head2.getNext());
+                singleLinkedList.add(element);
+                head2 = head2.getNext();
+            }
+            return singleLinkedList;
+        }
+
+    }
+
     public static void main(String[] args) {
 
-        SingleLinkedList linkedList = generateList();
-        linkedList.showSingleLinkedList();
+//        SingleLinkedList linkedList = generateList();
+//        linkedList.showSingleLinkedList();
 //        int linkedListSize = getLinkedListSize(generateList());
 //        System.out.printf("get size is %d\n", linkedListSize);
 
@@ -120,8 +153,32 @@ public class PracticeSingleLinkedListMain {
 //        SingleLinkedList reverseLinkedList = reverseLinkedList(linkedList);
 //        reverseLinkedList.showSingleLinkedList();
 
-        String print = reversePrintLinkedList(linkedList.getHead().getNext(), null);
-        System.out.println(print);
+//        String print = reversePrintLinkedList(linkedList.getHead().getNext(), null);
+//        System.out.println(print);
+        HeroElement heroElement1 = new HeroElement(1, "宋江", "及时雨");
+        HeroElement heroElement2 = new HeroElement(2, "卢俊义", "玉麒麟");
+        HeroElement heroElement3 = new HeroElement(3, "吴用", "智多星");
+        HeroElement heroElement4 = new HeroElement(4, "公孙胜", "入云龙");
+        HeroElement heroElement5 = new HeroElement(5, "林冲", "豹子头");
+
+        SingleLinkedList linkedList1 = new SingleLinkedList();
+        SingleLinkedList linkedList2 = new SingleLinkedList();
+
+        linkedList1.add(heroElement1);
+        linkedList1.add(heroElement3);
+
+        linkedList2.add(heroElement2);
+        linkedList2.add(heroElement4);
+        linkedList2.add(heroElement5);
+
+        System.out.println("----------1");
+        linkedList1.showSingleLinkedList();
+        System.out.println("----------2");
+        linkedList2.showSingleLinkedList();
+        System.out.println("----------3");
+
+        SingleLinkedList singleLinkedList = mergeSingleLinkedList(linkedList1, linkedList2);
+        singleLinkedList.showSingleLinkedList();
     }
 
     /**
