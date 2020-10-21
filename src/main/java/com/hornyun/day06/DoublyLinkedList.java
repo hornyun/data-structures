@@ -59,6 +59,12 @@ public class DoublyLinkedList {
         System.out.printf("链表中不存在元素编号为[%d]的元素\n", no);
     }
 
+    /**
+     * update method
+     * @param no no
+     * @param name name
+     * @return update element
+     */
     public Element update(int no, String name) {
         Element index = this.head;
         while (index.getNext() != null) {
@@ -90,7 +96,7 @@ public class DoublyLinkedList {
         Element index = this.head;
         StringBuilder result = new StringBuilder();
         while (index.getNext() != null) {
-            result = result.append(index.getNext().toString()).append("\n");
+            result.append(index.getNext().toString()).append("\n");
             index = index.getNext();
         }
         return result.toString();
