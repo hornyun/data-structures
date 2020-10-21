@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单样式选择器</title>
+    <style>
+        input:disabled {
+            background: yellow;
+        }
+        input:enabled {
+            background: aqua;
+        }
+        input:checked+label {
+            color: blueviolet;
+        }
+    </style>
+</head>
+<body >
+<from action="">
+    <input type="text" disabled>
+    <input type="text">
+    <hr/>
+    <input type="radio" name="sex"  id="boy">
+    <label for="boy">男</label>
+    <input type="radio" name="sex" checked id="girl">
+    <label for="girl">女</label>
+    <hr/>
+    <botton>保存</botton>
+</from>
+
+</body>
+</html>
