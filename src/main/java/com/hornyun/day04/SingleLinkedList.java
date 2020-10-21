@@ -6,8 +6,11 @@ package com.hornyun.day04;
  */
 public class SingleLinkedList {
 
-    private HeroElement head = new HeroElement(0, "", "");
+    private final HeroElement head = new HeroElement(0, "", "");
 
+    public HeroElement getHead() {
+        return head;
+    }
 
     public boolean isEmpty() {
         return head.getNext() == null;
@@ -19,10 +22,14 @@ public class SingleLinkedList {
         while (true) {
             if (next.getNext() == null) {
                 break;
-            } else if (next.getNext().getNo() > element.getNo()) {
-                flag = true;
-                break;
-            } else if (next.getNext().getNo() == element.getNo()) {
+            }
+
+            //完成练习题，去掉按号入座的排序功能
+//            else if (next.getNext().getNo() > element.getNo()) {
+//                flag = true;
+//                break;
+//            }
+            else if (next.getNext().getNo() == element.getNo()) {
                 System.out.printf("[%s]好汉已经添加\n", element.getNickname());
                 break;
             } else {
