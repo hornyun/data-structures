@@ -51,7 +51,7 @@ public class JosephuProblemMain {
 
     public static void main(String[] args) {
         SingleLinkedList sortedList = getSortedList(5);
-        String s = removeElement(sortedList, 1, 6, "");
+        String s = removeElement(sortedList, 2, 3, "");
         System.out.println(s);
     }
 }
