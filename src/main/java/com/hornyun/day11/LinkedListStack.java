@@ -52,4 +52,9 @@ public class LinkedListStack implements Stack{
         }
 
     }
+
+    @Override
+    public boolean isEmpty() {
+        return store.getIndex() == null;
+    }
 }

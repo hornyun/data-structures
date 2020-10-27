@@ -10,4 +10,6 @@ public interface Stack {
     int pop();
 
     void show();
+
+    boolean isEmpty();
 }

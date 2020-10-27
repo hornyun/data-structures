@@ -21,6 +21,7 @@ public class ArrayStack implements Stack{
         this.size = maxSize;
     }
 
+    @Override
     public boolean isEmpty() {
         return top==-1;
     }
