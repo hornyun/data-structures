@@ -35,6 +35,7 @@ public class ArrayStack implements Stack{
             throw new RuntimeException("can't pop element because of stack is empty");
         }
         int result = store[top];
+        store[top]=0;
         top--;
         return result;
     }

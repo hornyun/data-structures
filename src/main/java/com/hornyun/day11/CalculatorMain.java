@@ -12,51 +12,50 @@ package com.hornyun.day11;
 public class CalculatorMain {
 
     public static void main(String[] args) {
-        String test1 = "7*2*2-5+1-5+3";
-        int length = test1.length();
+        String test1 = "3+2*6-2";
+        System.out.println("last calculate is " + getCalculatingValue(test1));
+
+    }
+
+    public static int getCalculatingValue(String expression) {
+        int length = expression.length();
 
         Stack digitalStack = new ArrayStack(100);
         Stack operatorStack = new LinkedListStack();
 
         for (int i = 0; i < length; i++) {
-            char charAt = test1.charAt(i);
-            if (charAt >=48  && charAt <= 57) {
+            char charAt = expression.charAt(i);
+            if (charAt >= 48 && charAt <= 57) {
                 digitalStack.push(charAt - '0');
             } else {
-                Character preOperator;
-                try {
-                    preOperator = (char) operatorStack.pop();
-                } catch (Exception e) {
-                    preOperator = null;
-                }
-                if (preOperator == null || compare(charAt, preOperator) > 0) {
-                    if (preOperator != null) {
-                        operatorStack.push((int) preOperator);
-                    }
-                    operatorStack.push((int) charAt);
-                } else {
-                    int last = digitalStack.pop();
-                    int first = digitalStack.pop();
-                    int calculate = calculate(first, last, preOperator);
-                    digitalStack.push(calculate);
-                    operatorStack.push(charAt);
-                }
+                executeCalculate(digitalStack, operatorStack, charAt);
             }
         }
-        while (true) {
-            char pop;
-            try {
-                pop=(char) operatorStack.pop();
-            } catch (Exception e) {
-                break;
-            }
-            int last = digitalStack.pop();
-            int first = digitalStack.pop();
-            int calculate = calculate(first, last, pop);
-            digitalStack.push(calculate);
+        int last = digitalStack.pop();
+        int first = digitalStack.pop();
+        char pop =(char) operatorStack.pop();
+        return calculate(first, last, pop);
+    }
+    private static void executeCalculate(Stack digitalStack, Stack operatorStack, char currentOperator) {
+        Character preOperator;
+        try {
+            preOperator = (char) operatorStack.pop();
+        } catch (Exception e) {
+            preOperator = null;
         }
 
-        System.out.println("last calculate is "+digitalStack.pop());
+        if (preOperator == null) {
+            operatorStack.push((int) currentOperator);
+        } else if (compare(currentOperator, preOperator) > 0) {
+            operatorStack.push(preOperator);
+            operatorStack.push(currentOperator);
+        } else {
+            int last = digitalStack.pop();
+            int first = digitalStack.pop();
+            int calculate = calculate(first, last, preOperator);
+            digitalStack.push(calculate);
+            executeCalculate(digitalStack, operatorStack, currentOperator);
+        }
 
     }
 
