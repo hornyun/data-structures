@@ -23,15 +23,13 @@ public class ReservePolishNotationMain {
             throw new ArithmeticException("can't calculate empty expression");
         }else{
             String[] elements = expression.split(" ");
-            int length = elements.length;
             Stack<Integer> digits = new Stack<>();
 
-            for (int i = 0; i < length; i++) {
-                String element = elements[i];
+            for (String element : elements) {
                 boolean digit = PolishNotationMain.isDigit(element);
                 if (digit) {
                     digits.push(Integer.parseInt(element));
-                }else{
+                } else {
                     Integer first = digits.pop();
                     Integer last = digits.pop();
                     int calculate = CalculatorMain.calculate(first, last, element.charAt(0));
