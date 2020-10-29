@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>传值与传值</title>
+    <script>
+
+        // a 200 不影响上面 b = a 自上而下读取
+        // var a = 100;
+        // let b = a;
+        // var a = 200;
+        // console.log(b);
+
+
+        // 对于引用类型来讲，变量保存的是引用对象的指针。变量间赋值时其实赋值是变量的指针，这样多个变量就引用的是同一个对象。
+        // let a = {
+        //     web: "后盾人"
+        // };
+        // let b = a;
+        // a.web = "hdcms";
+        // console.log(b);
+
+        // "use strict";
+        // 严格模式可以让我们及早发现错误，使代码更安全规范，推荐在代码中一直保持严格模式运行。
+        /*变量必须使用关键词声明，未声明的变量不允许赋值
+        强制声明防止污染全局
+        关键词不允许做变量使用
+        变量参数不允许重复定义
+        单独为函数设置严格模式
+        为了在多文件合并时，防止全局设置严格模式对其他没使用严格模式文件的影响，将脚本放在一个执行函数中。*/
+
+        // a = 10;
+
+        /*function run() {
+           let web = "houdunren";
+           return web;
+        }
+        run();
+        console.log(run()); //houdunren*/
+
+        /*function run() {
+            web = "houdunren";
+        }
+        run();
+        console.log(web); //houdunren
+*/
+
+        // "use strict";
+        // ({name,url} = {name:'后盾人',url:'houdunren.com'});
+        // console.log(name, url);
+
+        // console.log("随便打印一句话")
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
