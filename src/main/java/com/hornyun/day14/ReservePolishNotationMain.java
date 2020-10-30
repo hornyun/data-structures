@@ -14,14 +14,15 @@ import java.util.Stack;
 public class ReservePolishNotationMain {
 
     public static void main(String[] args) {
-        int i = calculateReservePolishExpression("2 3 + 1 -");
-        System.out.println("calculate expression is " + i);
+        String expression = "2 3 + 1 -";
+        int outcome = calculateReservePolishExpression(expression);
+        System.out.println("calculate expression is " + outcome);
     }
 
     public static int calculateReservePolishExpression(String expression) {
         if (StringUtils.isBlank(expression)) {
             throw new ArithmeticException("can't calculate empty expression");
-        }else{
+        } else {
             String[] elements = expression.split(" ");
             Stack<Integer> digits = new Stack<>();
 

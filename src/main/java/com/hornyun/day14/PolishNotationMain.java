@@ -12,10 +12,17 @@ import java.util.Stack;
  */
 public class PolishNotationMain {
     public static void main(String[] args) {
-        //expression = "(3+4)-4*(1+2)";
-        String expression = "- + 3 4 * 4 + 1 2";
-        //expression = 1-(2+3)
-        //String expression = "- 1 + 2 3";
+        //a+b = = 1+2
+        //String expression = "+ 1 2";
+
+        //a+(b-c) = = 5 + ( 2 -4 )
+        //String expression = "+ 5 - 2 4";
+
+        //a+(b-c)*d = = 3 +(6-4)*3
+        //String expression = "+ 3 * - 6 4 3";
+
+        // a + b + c = 1 + 2 + 3
+        String expression = "+ + 1 2 3";
         System.out.println(calculatePolishNotation(expression));
     }
 
