@@ -14,7 +14,8 @@ import java.util.Stack;
 public class ReservePolishNotationMain {
 
     public static void main(String[] args) {
-        String expression = "2 3 + 1 -";
+        String expression = "1 2 3 + -";
+//        String expression = "3 4 + 5 * 6 -";
         int outcome = calculateReservePolishExpression(expression);
         System.out.println("calculate expression is " + outcome);
     }
@@ -31,8 +32,8 @@ public class ReservePolishNotationMain {
                 if (digit) {
                     digits.push(Integer.parseInt(element));
                 } else {
-                    Integer first = digits.pop();
                     Integer last = digits.pop();
+                    Integer first = digits.pop();
                     int calculate = CalculatorMain.calculate(first, last, element.charAt(0));
                     digits.push(calculate);
                 }
