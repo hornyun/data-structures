@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>This例子</title>
+    <script>
+        /*
+        一般而言，在Javascript中，this指向函数执行时的当前对象。
+        该关键字(this)在Javascript中和执行环境，而非声明环境有关。
+        * */
+        /*<------------------------------------------->*/
+        /*var someone = {
+            name: "Bob",
+            showName: function() {
+                alert(this.name);
+            }
+        };
+
+        var other = {
+            name: "Tom",
+            showName: someone.showName
+        }
+        other.showName();　　//Tom*/
+
+        /*<------------------------------------------->*/
+       /* var name = "Bob";
+        var nameObj ={
+            name : "Tom",
+            showName : function(){
+                alert(this.name);
+            },
+            showName2 : function (){
+               this.showName () ;
+            },
+            waitShowName : function(){
+                !function(__callback){
+                    __callback();
+                }(this.showName);
+            }
+        };
+        nameObj.showName2();//tom
+
+        var showName = "Bob";
+         function showName (){
+            alert('xxx');
+        };
+        nameObj.waitShowName();　　//Bob*/
+
+        /*<------------------------------------------->*/
+
+        /*var name = "Bob";
+        var nameObj ={
+            name : "Tom",
+            showName : function(){
+                alert(this.name);
+            },
+            waitShowName : function(){
+                var that = this;
+                setTimeout(function(){
+                    that.showName();
+                }, 1000);
+            }
+        };
+
+        nameObj.waitShowName();　　//Tom*/
+        /*在执行nameObj.waitShowName函数时，我们先对其this赋给变量that
+        （这是为了避免setTimeout中的匿名函数运行时，匿名函数中的this指向window），
+        然后延迟运行匿名函数，执行that.showName，即nameObj.showName，所以alert出正确结果Tom。*/
+    </script>
+</head>
+<body>
+
+</body>
+</html>

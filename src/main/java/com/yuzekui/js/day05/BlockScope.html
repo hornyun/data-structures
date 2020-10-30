@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>块作用域</title>
+    <script>
+        /*
+        var/let/const 共同特点是全局作用域中定义的变量，可以在函数中使用
+
+        var hd = 'test';
+        function show () {
+         return hd
+         }
+         console.log(show())
+        * */
+
+        // test
+
+        /*
+        重点：
+        函数中声明的变量，只能在函数及其子函数中使用
+        * */
+
+        // test
+       /* function hd() {
+            var web = "后盾人";
+
+            function show() {
+                console.log(web);
+            }
+            show(); //子函数结果: 后盾人
+            console.log(web); //函数结果: 后盾人
+        }
+        hd();*/
+        // console.log(web); //全局访问: hd is not defined
+
+
+        // 把web声明在外面 这样就全局都可以使用；只有声明在函数中才会无法使用
+       /* var web = "hdcms.com";
+        function hd() {
+            var web = "houdunren.com";
+            console.log(web); //houdunren.com
+        }
+        hd();
+        console.log(web); //hdcms.com*/
+
+        // var
+        // 使用 var 声明的变量存在于最近的函数或全局作用域中，没有块级作用域的机制。
+        // 没有块作用域很容易污染全局，下面函数中的变量污染了全局环境
+
+        /*function run() {
+            web = "houdunren";
+        }
+        run();
+        console.log(web); //结果houdunren*/
+
+       /* for (var i = 0; i < 10; i++) {
+            console.log(i);
+        }*/
+        // alert(i);//10
+
+
+        /*// let 作用域测试
+        for (let i = 0; i < 10; i++) {
+            // 这里面的i之作用在里面 外部都不能获取
+            console.log(i)
+
+        }
+
+        console.log('外部',i)
+        let ss = 11;*/
+
+        // 验到 var 没有块作用域概念， do/while 定义的变量可以在块外部访问到
+        // var num = 0;
+        //
+        // function show() {
+        //     var step = 10;
+        //     do {
+        //         var res = 0;
+        //         console.log(num = step++);
+        //         res = num;
+        //     } while (step < 20);
+        //     console.log(`结果是${res}`);
+        // }
+        // show();
+        // (function() {
+        //     var $ = this.$ = {};
+        //     $.web = "后盾人";
+        // }.bind(window)());
+        // console.log($.web);
+    </script>
+
+
+    <script>
+        // alert(i);全局作用 输出:10
+        // alert(ss);//11
+        // alert(i);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
