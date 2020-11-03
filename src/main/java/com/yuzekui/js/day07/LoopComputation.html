@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>循环计算</title>
+    <script>
+        /*
+        【注】理解循环的本质：
+            2.上上有一口缸可以装50升水，现在有15升水。老和尚叫小和尚下山挑水，每次可以挑5升。
+            问：小和尚要挑几次水才可以把水缸挑满？通过编程结局哦这个问题。
+        * */
+
+        var water = 15;
+        var count = 0;
+        while (water < 50){
+            count++;
+            water += 5;
+        }
+        alert('一共挑了'+ count + '次水');
+    </script>
+</head>
+<body>
+
+</body>
+</html>
