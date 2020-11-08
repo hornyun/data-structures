@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>recursion</title>
+    <script>
+        // 1~n的和
+        
+        /*function num (n){
+            let res = 0;
+            for (let i = 0; i <= n ; i++) {
+                res += i
+            }
+            return res;
+        }*/
+        // alert(num(100))
+
+        // 递归：
+        // 方法：
+        // 1、首相找到临界值，无需计算就能获得值。
+        // 2、找这一次和上一次的关系。
+        // 3、假设当前幻术已经可以使用，调用自身计算上一次。
+
+        function sum (n){
+            if (n == 3) {
+                return 6;
+            }
+            return sum(n - 1) + n;
+        }
+        alert(sum(100))
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
