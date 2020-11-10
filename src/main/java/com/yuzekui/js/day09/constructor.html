@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>构造函数</title>
+    <script>
+
+        // 非常相似性java面向对象思想了
+        // 类构造
+        // class person {
+        //     constructor(name, age) {
+        //         this.name = name;
+        //         this.age = age;
+        //     }
+        //     say(){
+        //         return this.name + this.age;
+        //     }
+        // }
+        //
+        // var obj = new person('张飞', 18);
+        // console.log(obj.say())
+
+        // 函数构造
+        function Test(name, age) {
+            if (!(this instanceof Test)) {
+                throw new Error('请使用 new Test');
+            }
+            this.name = name;
+            this.age = age;
+
+
+            Test.prototype.say = function () {
+
+                return this.age + this.name;
+            };
+        }
+
+
+        console.log('arguments是什么：', Test.arguments);
+        console.log('proptotype是什么', Test.prototype);
+        let test = new Test('aaaa', 13);
+        console.log(test.say())
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数据类型转换</title>
+    <script>
+         // 数据类型检测
+         let a = 1;
+         let b = '张三';
+         let c = 1.23;
+         let d = [2, 3, 4, 5];
+         let student = {name: '张胜男',age: 18,sex:'girl'}
+
+         console.log('number',typeof a);
+         console.log('字符串',typeof b);
+         console.log('浮点型',typeof c);
+         console.log('数组',typeof d );//typeof 无法检测出是否数组
+         console.log('对象',typeof student);
+
+         // instanceof 运算符检测构造函数的 prototype 属性是否出现在某个 实力对象的原型链上。也可以理解为是否为某个对象的实例，
+         // typeof不能区分数组，但instanceof可以
+
+         /*let hd = [];
+         let houdunren = {};
+         console.log(hd instanceof Array); //true
+         console.log(houdunren instanceof Array); //false
+
+         let c = [1, 2, 3];
+         console.log(c instanceof Array); //true
+
+         let d = { name: "houdunren.com" };
+         console.log(d instanceof Object); //true
+
+         function User() {}
+         let hd = new User();
+         console.log(hd instanceof User); //true
+*/
+         // 测试自定义对象
+         /*function person(name, age, gender) {
+             this.name = name;
+             this.age = age;
+             this.gender = gender;
+         }
+
+         var p = person('八戒', 19, '男');
+         alert(p instanceof person);*/
+
+         // let content = '这是一个\'西瓜\'，又是一个\"皮球\" 符号\\ 符号2 \n新的一行\t';
+         // console.log(content);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
