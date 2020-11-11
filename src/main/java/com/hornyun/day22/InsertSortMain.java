@@ -34,9 +34,11 @@ public class InsertSortMain {
      */
     public static void insertSort(int[] sortArray) {
         if (ArrayUtils.isNotEmpty(sortArray)) {
+            int sortValue;
+            int moveIndex;
             for (int i = 0; i < sortArray.length - 1; i++) {
-                int sortValue = sortArray[i + 1];
-                int moveIndex = i;
+                sortValue = sortArray[i + 1];
+                moveIndex = i;
                 while (moveIndex >= 0 && sortArray[moveIndex] > sortValue) {
                     sortArray[moveIndex + 1] = sortArray[moveIndex];
                     moveIndex--;
