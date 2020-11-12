@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>array</title>
+    <script>
+        // 学习使用Array.from()
+        // let object = new Object();
+        // object.name = '大虎';
+        // object.age = 18;
+        // object.grande = 'boy';
+        // let ob = {name:'asdas',age: 23, grande: 'boy',length : 3}
+        // let ob1 = {0:'asdas',1: 23, 2: 'boy',length : 3}
+        // console.log(Array.from(ob));
+        // console.log(Array.from(ob1));
+        //
+        // let a = 'asdasdfasfsdfd';
+        // document.write(Array.from(a));
+        //
+        // let s = document.querySelectorAll('button')
+        // document.write(Array.from(s,(item) => {
+        //         item.style.background = 'red';
+        // }));
+
+
+
+        let btns = document.querySelectorAll('button');
+        Array.prototype.map.call(btns, (item) => {
+            item.style.background = 'red';
+        });
+    </script>
+</head>
+<body>
+<!--<p>asdfgdfasdeda</p>-->
+<!--<button>asdgdfsafggsa</button>-->
+<button message="后盾人">button</button>
+<button message="hdcms">button</button>
+</body>
+</html>
