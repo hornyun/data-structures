@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数组</title>
+    <script>
+        // console.log('新建数组', new Array(1, '后盾人', 'hdcms'));
+        // const array = ["hdcms", "houdunren"];
+        // console.log('自变量创建数组',array)
+        //
+        // const arrays = [["hdcms"], ["houdunren"]];
+        // console.log('多维数组',arrays[1][0]);
+
+        // let a = [1, 2, 3];
+        // let b = ['a', '后盾人', ...a];
+        // console.log(b); //["a", "后盾人", 1, 2, 3]
+        function rangeArray(begin, end) {
+            const array = [];
+            for (let i = begin; i <= end; i++) {
+                array.push(i);
+            }
+            return array;
+        }
+        // 引用数组就可以直接改变源头
+        let rangeArray1 = rangeArray(1, 6);
+        console.log(rangeArray1);
+        console.log(rangeArray1.pop());//6弹出数组最后一位
+        console.log(rangeArray1.shift())//取出第一个元素
+        console.log(rangeArray1)
+        rangeArray1.unshift('新添加的');
+        console.log(rangeArray1[0])//新添加的
+
+        // fill可以固定靶添加
+        console.log([1, 2, 3, 4].fill("后盾人", 1,4)); //[1, "后盾人", 3, 4] 参数1:添加什么 参数2: 哪里开始 参数3: 结束位置之前 同slice第二参数一样
+
+        // slice
+        let ar = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        console.log(ar.slice());
+
+        // 第二个参数停止 不计入计算 所以是下标 0 1 2
+        console.log(ar.slice(0,3));
+
+
+        // splice 进行删除
+        let arr = [0, 1, 2, 3, 4, 5, 6];
+        console.log(arr.splice(1, 3)); //返回删除的元素 [1, 2, 3]    从下标[1]开始 删除三个
+        console.log(arr); //删除数据后的原数组 [0, 4, 5, 6]
+
+        let arrs = ["后盾人", "hdcms"];
+        arrs.length = arrs.length - 1;
+        console.log('length删除方法',arrs);
+
+
+
+        let arrss = [0, 1, 2, 3, 4, 5, 6];
+        console.log(arrss.splice(1, 3, '啊啊啊啊', '张飞')); //[1, 2, 3]      删除1 2 3 然后替换成 啊啊啊啊 张飞
+        console.log(arrss); //[0, "啊啊啊啊", "张飞", 4, 5, 6]
+
+        arrss.splice(0 ,0,'splice方法添加到数组前')
+        arrss.splice(arrss.length ,0,'splice方法添加到数组最后面')
+
+
+
+
+        function move(array, before, to) {
+            if (before < 0 || to >= array.length) {
+                console.error("指定位置错误");
+                return;
+            }
+            const newArray = [...array];
+            const elem = newArray.splice(before, 1);
+            newArray.splice(to, 0, ...elem);
+            return newArray;
+        }
+        const CCC= [1, 2, 3, 4];
+        console.table('调换:',move(CCC, 0, 2));
+
+    </script>
+</head>
+<body>
+    <div>测试1</div>
+    <div>测试2</div>
+    <div>测试3</div>
+    <div>测试4</div>
+    <div>测试5</div>
+</body>
+<style>
+    .hide {
+    display: none;
+    }
+</style>
+</html>
