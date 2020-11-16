@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>assign</title>
+    <script>
+        // ES6 Object.assign()\
+        // 这里返回的都是对象，所以数组的话 可以用Array.from()变成数组
+
+        // 准备三个对象
+        const target = { a: 1 };
+        const source1 = { b: 2 };
+        const source2 = { c: 3 };
+        // 这个操作相当于 把target把他当个主对象 ，然后把source1 和 source2 都合并到 target
+        Object.assign(target, source1, source2);
+        console.log(target)//打印{a:1, b:2, c:3}
+        console.log(Object.assign({},source2,source1))//{b:2, c:3}
+
+        // 注意，如果目标对象与源对象有同名属性，或多个源对象有同名属性，则后面的属性会覆盖前面的属性。
+        /*const target = { a: 1, b: 1 };
+
+        const source1 = { b: 2, c: 2 };
+        const source2 = { c: 3 };
+
+        Object.assign(target, source1, source2);
+        target // {a:1, b:2, c:3}*/
+
+        // enumerable: false js对象中的属性 判断是否 进行枚举
+    </script>
+</head>
+<body>
+
+</body>
+</html>
