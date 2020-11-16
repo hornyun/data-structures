@@ -3,6 +3,7 @@ package com.hornyun.day04;
 /**
  * @author hornyun
  * @date 2020/10/19 11:45 下午
+ * 单向链表
  */
 public class SingleLinkedList {
 
