@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue2.0</title>
+    <script src="../jsPackage/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <p>{{name}}</p>
+    <p v-once >{{vonce}}</p>
+    <p>{{vonce}}</p>
+
+</div>
+</body>
+<script>
+    // vue的特点 通过数据驱动界面更新，无需操作DOM来更新界面
+    // 使用Vue我们只需要关心如何获取数据，如何处理数据，如何便写业务逻辑代码,我们只需要将处理好的数据交给VUE，VUE就会自动将数据渲染到模板中（界面上）
+    // vue通过组件化开发，我们可以将网页拆分成一个个独立的组件来变成。
+
+    // 创建一个Vue实例对象
+    let vue = new Vue({
+        // vue有一个自带属性：告诉vue将来需要控制界面上的哪个区域
+        el: '#app',
+            // 告诉vue的实例对象，被控制区域数据是什么
+            // v-once:适合做初始化数据
+        data: {
+            name: 'hello word',
+            vonce: '只绑定一次'
+        }
+    })
+    // MVVM设计模式：
+    // M: Modol =>实例对象中的Model
+    // V: View  =>被控制的区域
+    // VM View Model => Vue实例对象
+
+</script>
+</html>

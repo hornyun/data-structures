@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <title>vue-常用指令</title>
+     1、什么是指令？
+     指令就是vue内部提供的一些自定义属性，
+     这些属性中封装好了vue内部实现的一些功能能
+     只要使用这些指令就可以使用Vue中实现的这些功能
+     2、Vue数据绑定的特定;
+     只要数据变化，界面就会跟着变化
+
+     3v-once指令：
+     就让界面不要跟着数据变化，之渲染一次。-->
+</head>
+    <style>
+        [v-cloak]{ display: none}
+    </style>
+<body>
+<div id="app">
+    <p v-once>原始数据:{{name}}</p>
+    <p>当前数据:{{name}}</p>
+    <p v-cloak>数据来了在渲染不显示模板：{{modala}}</p>
+    <p v-html="msg"></p>
+</div>
+</body>
+    <script src="../../jsPackage/vue.js"></script>
+    <script>
+        // vue的特点 通过数据驱动界面更新，无需操作DOM来更新界面
+        // 使用Vue我们只需要关心如何获取数据，如何处理数据，如何便写业务逻辑代码,我们只需要将处理好的数据交给VUE，VUE就会自动将数据渲染到模板中（界面上）
+        // vue通过组件化开发，我们可以将网页拆分成一个个独立的组件来变成。
+
+        // 创建一个Vue实例对象
+        let vue = new Vue({
+            // vue有一个自带属性：告诉vue将来需要控制界面上的哪个区域
+            el: '#app',
+            // 告诉vue的实例对象，被控制区域数据是什么
+            // v-once:适合做初始化数据
+            data: {
+                name: '张飞',
+                modala: '我出现了',
+                msg: "<span id='col'>颜色</span>",
+            }
+        })
+    </script>
+    <style>
+        #col {
+            color: #8700ff;
+        }
+    </style>
+</html>
