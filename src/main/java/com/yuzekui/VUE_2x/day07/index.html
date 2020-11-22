@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义指令</title>
+    <script src="../../jsPackage/vue.js"></script>
+</head>
+<body>
+<div id="app">
+<!--    <p v-color>我是段落</p>-->
+
+    <input v-focus type="text">
+
+    <p v-color="'blue'">自定义标签</p>
+
+</div>
+
+</body>
+<script>
+    /*自定义指令两种：
+    分为全局指令，和局部指令*/
+
+
+    // 1、自定义全局指令：
+
+
+   /* directive方法接收两个参数
+    第一个参数： 指令名称
+    第二个参数：对象
+    注意点：在自定义指令的时候，在指定指令名称的时候，不需要写v-
+    自定义指令是由生命周期的
+    指令可以在不用的生命周期阶段执行：
+    bind:指令绑定到元素上的时候执行
+    inserted:绑定指令的元素被添加到父元素上的时候调用
+    */
+
+
+
+
+    // 全局自定义指令传参
+ /*   Vue.directive('color',{
+        // el指向被绑定指令的那个元素
+        bind: function (el) {
+            el.style.color = 'red';
+
+        }
+    });*/
+    Vue.directive('color',{
+        // el指向被绑定指令的那个元素
+        // 自定义组件传值可以穿对象所以错做性增强
+        bind: function (el,obj) {
+            console.log(obj)
+            el.style.color = obj.value;
+
+        }
+    });
+
+    Vue.directive('focus',{
+        // 生命周期测试
+        inserted: function (el) {
+            el.focus();
+
+        }
+    });
+    let vue = new Vue({
+        el:'#app',
+        data: {},
+        methods: {},
+        // 局部自定义组件
+        directives: {
+            /*'组件名称',{
+            组件要看不同声明周期 可参考VUE文档
+                bind: function (el,obj){
+                    console.log('局部自定义方法和全局一样')
+                }
+    }*/
+
+        }
+    });
+</script>
+<style>
+
+</style>
+</html>
