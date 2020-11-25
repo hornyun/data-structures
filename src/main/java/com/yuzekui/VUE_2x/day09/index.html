@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>过滤器</title>
+    <script src="../../jsPackage/vue.js"></script>
+
+</head>
+<body>
+<div id="app">
+    <!--    vue会把插值name 交给指定的过滤器，返回值填充view-->
+    <p>{{name | formatStr1}}</p>
+</div>
+</body>
+<script>
+    /*如何定义一个全局过滤器
+    通过Vue.filter();
+    filter方法接收两个参数
+    第一参数：过滤器名称
+    第二参数：处理数据的函数
+    注意点：默认那情况下处理数据的函数接收一个参数，就当前要被处理的数据*/
+    /*Vue.filter("formatStr1", function (value) {
+        console.log(value);
+        value = value.replace(/司徒/g,"老师")
+        return value;
+    });
+    Vue.filter("formatStr2", function (value) {
+        console.log(value);
+        value = value.replace(/老师/g,"校长")
+        return value;
+    });*/
+
+
+    let vue = new Vue({
+        el: '#app',
+        data: {
+            name: "张司徒,王司徒,李司徒,何司徒,方司徒",
+            time: Date.now(),
+        },
+        methods: {},
+        directives: {},
+        computed: {},
+        filters: {
+            "formatStr1": function (value) {
+                value = value.replace(/司徒/g,"某人")
+                return value;
+            }
+        }
+    });
+</script>
+<style>
+
+</style>
+</html>

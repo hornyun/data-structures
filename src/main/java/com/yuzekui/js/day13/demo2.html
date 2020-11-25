@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        function disp_prompt(){
+            var name=prompt("输入的内容","");
+            if (name!=null && name!="") {
+                alert("你输入的是" + name);
+
+            }
+        }
+        function prom() {
+            var name = prompt("请输入您的名字", ""); //将输入的内容赋给变量 name ，
+
+            //这里需要注意的是，prompt有两个参数，前面是提示的话，后面是当对话框出来后，在对话框里的默认值
+            if (name)//如果返回的有内容
+            {
+                alert("欢迎您：" + name)
+            }
+
+        }
+
+        (function () {
+            function ModalPlugin() {
+                return
+            }
+
+            // 浏览器直接导入,这样的方法是暴露到全局的
+            window.ModalPlugin = ModalPlugin;
+            //如果还需要支持ES6Module/CommonJS模块导入规范,在react项目当中,vue项目当中也想用
+            if (typeof module !== 'undefined' && module.exports !== 'undefined') {//如果module不存在,typeof不会出错,会返回undefined
+                module.exports = ModalPlugin;//CommonJS规范,只有在webpack环境下才支持
+            }
+        })()
+    </script>
+</head>
+<body>
+<input type="button" onclick="disp_prompt()" value="显示一个提示框" />
+<input type="button" onclick="prom()" value="显示一个提示框" />
+
+<!-- 按钮触发模态框 -->
+<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+    开始演示模态框
+</button>
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    模态框（Modal）标题
+                </h4>
+            </div>
+            <div class="modal-body">
+                在这里添加一些文本
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                </button>
+                <button type="button" class="btn btn-primary">
+                    提交更改
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+</body>
+</html>
