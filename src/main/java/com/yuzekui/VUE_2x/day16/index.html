@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <button @click="appFn">我是按钮</button>
+    <abc></abc>
+</div>
+<template id="info">
+    <div>
+        <img src="../imges/01.png"/>
+        <button @click="appFn">我是按钮</button>
+        <p>我是描述信息</p>
+    </div>
+</template>
+</body>
+<script>
+
+    // Vue.component("abc",{
+    //     template: "#info",
+    //     methods: {
+    //         appFn(){
+    //             alert("内部")
+    //         },
+    //     },
+    // })
+
+
+    let vue = new Vue({
+        el: "app",
+        data:{},
+        methods:{
+            appFn(){
+                alert("appfn");
+            },
+        },
+        computed:{},
+        component:{
+            "abc":{
+                template:"#info"
+            }
+        },
+    });
+</script>
+</html>

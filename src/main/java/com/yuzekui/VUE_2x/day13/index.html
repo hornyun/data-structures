@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>过渡动画2.0</title>
+  <script src="../../jsPackage/vue.js"></script>
+</head>
+<body>
+<div id="app">
+  <button @click="toggle">我是按钮</button>
+<!--  v-bind:css = "false" 表示禁止使用类名查找方式添加动画-->
+  <transition appear
+          v-bind:css = "false"
+          v-on:before-enter="beforeEnter"
+              v-on:enter = "enter"
+              v-on:after-enter = "afterEnter"
+
+>
+    <div class="box" v-show="isShow"></div>
+  </transition>
+</div>
+</body>
+<script>
+  // 利用js中声明钩子函数来进行动画
+
+  // JS钩子实现过度注意点
+  // 在动画过程中必须协商el.offsetWidth 或 el.offsetHeight
+  // 在enter和leave方法中必须调用done方法包裹到setTimeout方法中调用
+  // 需要添加初始动画，那么需要吧done方法包裹到setTimeout方法中
+  let vue = new Vue({
+    el: '#app',
+    data: {
+      isShow: true,
+    },
+    methods:{
+      toggle(){
+        this.isShow = !this.isShow;
+      },
+      beforeEnter(el){
+        // 进入动画之前的状态
+        el.style.opacity = "0";
+
+      },
+      enter(el,done){
+        // 进入动画过程中
+
+        // 在js钩子函数这种方法实现动画注意点：在动画过程中必须写上el.offsetWidth 或 el.offsetHeight 否则无法执行
+        /*注意点：动画执行完毕以后一定要调用done回调函数
+        否则后续afterEnter钩子函数不会被执行*/
+        el.offsetHeight
+        el.style.transition = "all 3s"
+
+        setTimeout(function (){
+          done();
+          } , 0)
+
+      },
+      afterEnter(el){
+        // 进入动画完毕以后
+          el.style.opacity = "1";
+          el.style.marginLeft = "500px";
+      },
+
+    },
+    computed: {},
+    directives: {},
+    filters: {},
+  });
+</script>
+<style>
+  .box {
+    height: 200px;
+    width: 200px;
+    background-color: aquamarine;
+  }
+
+</style>
+</html>

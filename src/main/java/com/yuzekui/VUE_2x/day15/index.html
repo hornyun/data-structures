@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue组件化-全局组件</title>
+    <script src="../../jsPackage/vue.js"></script>
+    <!--1.1将大界面拆分成小界面就是组件化
+
+    2组件化的好处
+    2.1可以简化Vue实例的代码
+    2.2可以提高复用性
+
+    3.Vue中如何创建组件？
+    3.1创建组件构造器
+    3.2注册已经创建好的组件
+    3.3使用注册好的组件-->
+</head>
+<body>
+<div id="app">
+    <abc></abc>
+
+</div>
+<script id="info" type="text/html">
+    <div>
+        <img src="../imges/01.png"/>
+        <p>我是描述信息</p>
+    </div>
+</script>
+<script>
+    // 3.1创建组件构造器
+    // 方法1
+    /*let Profile = Vue.extend({
+        template: `
+<div><img src="../imges/01.png"/>
+            <p>我是描述信息</p></div>>
+`
+    });*/
+// 方法2
+//     let obj = {
+//         template: `
+// <div><img src="../imges/01.png"/>
+//             <p>我是描述信息</p></div>>
+// `
+//     };
+    // 3.2注册已经创建好的组件
+    // 第一个参数：指定注册组建的名称
+    // 第二个参数：传入已经创建好的组件构造器 []
+    // 方法1
+    // Vue.component('abc', Profile)
+    /*方法2
+    Vue.component('abc', obj)*/
+    // 3.3使用注册好的组件
+
+    // 这里面的爆红不用管，IDEA无法解析。但是不会影响页面 Cannot resolve symbol 'info'
+
+    Vue.component("abc",{
+        template: "#info",
+    });
+
+    let vue = new Vue({
+        el: '#app',
+        data: {},
+        methods: {},
+
+    });
+</script>
+</body>
+</html>

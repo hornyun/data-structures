@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>location测试</title>
+</head>
+<body>
+<button value="text" onclick="test()">测试</button>
+</body>
+<script>
+    function test(){
+        document.write('链接对象地址：',document.location+"</br>")
+        document.write('链接对象地址：',document.location.href+"</br>")
+        document.write('链接对象地址：',document.URL+"</br>")
+        document.write('链接对象地址：',document.location.toString()+"</br>")
+        console.log('地址',document.URL)
+        let url = document.URL;
+        console.log('url-length',url.length);
+         /*indexOf(searchString: string, position?: number): number;
+         * 返回第一次出现的子字符串的位置。
+           参数：
+           searchString –要在字符串中搜索的子字符串
+           position –开始搜索String对象的索引。 如果省略，则搜索从字符串的开头开始。
+         * */
+        console.log('url-indexOf',url.indexOf('?'));
+        let number = url.indexOf('?');
+        /*substr(from: number, length?: number): string;
+        *
+        *获取一个从指定位置开始并具有指定长度的子字符串。
+         参数：
+         from –所需子字符串的起始位置。 字符串中第一个字符的索引为零。
+         length –要包含在返回的子字符串中的字符数。
+        * */
+        let s = url.substr(number+1);
+        console.log('url-substr', s);
+
+    }
+
+</script>
+<style>
+
+</style>
+</html>
