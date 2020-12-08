@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>父子组件传值</title>
+    <script src="../../jsPackage/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <father></father>
+
+</div>
+<template id="father">
+    <div>
+        <p>{{name}}</p>
+        <son :age="age" @parentsay="say">
+            <div>插槽</div>
+        </son>
+    </div>
+
+</template>
+<template id="son">
+    <div>
+        <button @click="sonSay">按钮</button>
+        <p>{{age}}</p>
+        <p>顶部</p>
+        <slot>测试</slot>
+        <p>尾部</p>
+    </div>
+
+</template>
+</body>
+<script>
+    Vue.component('father',{
+        template:'#father',
+        components:{
+            'son':{
+                template: '#son',
+                props:['age'],
+                data: function () {
+                    return {}
+                },
+                methods:{
+                    sonSay(){
+                        // emit 第一个参数就是父组件传过来的方法， 逗号 后面就是给父组件的参数
+                       this.$emit('parentsay')
+                    },
+                },
+                computed:{},
+                directives:{},
+            }
+        },
+        data: function () {
+            return{
+                name: '张飞',
+                age: 33,
+            }
+        },
+        methods: {
+            say(){
+                alert('parent说话')
+            },
+        },
+        computed: {},
+        directives: {},
+    })
+    let vue = new Vue({
+        el: '#app',
+        data:{},
+        methods:{},
+        computed:{},
+        directives:{},
+        filters: {},
+    });
+</script>
+</html>

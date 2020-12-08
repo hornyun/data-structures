@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件动画</title>
+    <script src="../../jsPackage/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <button @click="toggle"></button>
+    <transition>
+        <component v-bind:is="name"></component>
+    </transition>
+
+</div>
+</body>
+<template id="zj">
+    <div>
+        <P>组件页</P>
+        <input type="text">
+    </div>
+</template>
+<script>
+    // 自定义全局组件
+    Vue.component('zj',{
+        template: "#zj",
+        /*
+        *组件中的date如果不是通过函数返回，那么多个组件就回公用一份数据，就会导致数据混乱
+        * 如果组件中的data是通过函数返回的，那么没穿件一个新的组件吗，都会调用一次这哥方法
+        * 将这个方法返回的数据和当前创建绑定在一起，这样就会有效的避免了数据混乱
+        * */
+        data: function () {
+            return{
+                number:0,
+            }
+        },
+        methods:{
+            add(){
+                this.number++;
+            },
+
+        },
+        computed: {},
+        directives: {},
+        filters: {},
+        created(){},
+
+    })
+
+
+
+    let vue = new Vue({
+        el: "#app",
+        data: {
+
+        },
+        methods:{
+            toggle(){
+
+            },
+        },
+        computed: {},
+        directives: {},
+        filters: {},
+        created(){},
+
+
+    });
+</script>
+<style>
+
+</style>
+</html>
