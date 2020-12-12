@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>块级作用域</title>
+</head>
+<script>
+    function say() {
+        let name = '张三';
+        console.log(name)
+    }
+
+    // 我们发现let定义的常量 不能在方法玩使用。let是一个 块级作用域
+    console.log(name);
+    say();
+
+</script>
+<body>
+
+</body>
+</html>
