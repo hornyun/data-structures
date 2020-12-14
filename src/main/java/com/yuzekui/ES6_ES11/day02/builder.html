@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>生成器</title>
+</head>
+<body>
+<script>
+    function * gen (){
+        console.log('卡卡')
+        yield '一朵花';
+        console.log('哒哒')
+        yield '两朵花';
+        console.log('滴滴')
+        yield '三朵花';
+
+    }
+
+    const iterator = gen();
+    iterator.next();
+    iterator.next();
+</script>
+</body>
+</html>

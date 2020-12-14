@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>扩展运算符应用</title>
+</head>
+<body>
+<div></div>
+<div></div>
+<div></div>
+    <script>
+    // 1 .数组合并
+    const data = ['萨科', '韦恩', '迈德'];
+    const data2 = ['涛涛','搜索','娥娥']
+    let hebing = [...data, ...data2];
+    console.log('合并结果:',hebing);
+    // 2. 数组克隆
+    const a = ['tt', 'cc', 'aa'];
+    const b = [...a];
+    console.log(b);
+    // 3.将为数组装换位真数组
+    const divs = document.querySelectorAll('div');
+    console.log('获取元素数组：', divs);
+    const divarr = [...divs];
+    console.log(divarr);
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Symbol</title>
+    <script>
+      // ES6 应用的新型数据类型 Symbol, 表示独一无二的值。他是js语言中的第七种数据类型 ， 是一种类似于字符串的数据类型
+    /*Sybol 的值是唯一的，用来解决命名冲突的问题；
+    Symbol 值不能与其他数据类型进行运算
+    Symabol 定义的对象属性不能使用 for...in 循环遍历， 但是可以使用Reflect.ownKeys*/
+      const symbol = Symbol();
+      const symbol1 = Symbol('ES');
+      const symbol2 = Symbol('ES');
+      const s = Symbol.for('ES');
+      console.log(symbol1 ===  symbol2);
+      console.log(s, typeof s);
+
+     /* 数据类型 USONB
+      U undefined
+      S string Symbol
+      O object
+      N null number
+      B boolean*/
+    </script>
+
+</head>
+<body>
+
+
+</body>
+</html>
