@@ -53,12 +53,19 @@
         data: function () {
             return{
                 name: '张飞',
-                age: 33,
+                age: 3223,
             }
         },
         methods: {
             say(){
-                alert('parent说话')
+                let arr = [1,2,3,4,5,6,7,89,45,1,5]
+                for (let i = 0; i < arr.length; i++) {
+                setTimeout(()=>{
+                    this.age = arr[i];
+                    console.log('变化',age)
+                },1000)
+                }
+
             },
         },
         computed: {},

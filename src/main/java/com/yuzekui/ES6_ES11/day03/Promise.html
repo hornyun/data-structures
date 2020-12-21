@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Promise</title>
+
+</head>
+<body>
+<script>
+    // Promise主要解决的就是回调函数问题
+    const p = new Promise(function (resolve, reject) {
+        setTimeout(() => {
+
+            let data = '后台数据';
+            resolve(data);
+
+            // let err = '数据读取失败';
+            // reject(err);
+        },3000)
+    });
+    p.then(function (val) {
+        console.log(val);
+    }, function (reason) {
+        console.log(reason);
+    });
+
+
+</script>
+</body>
+</html>
