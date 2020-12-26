@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Set集合</title>
+</head>
+<body>
+
+<script>
+    const newVar = new Set();
+    const newVar1 = new Set([1,2,3,4,1,2,3,5,5,8,9]);
+    console.log(newVar);
+    console.log(newVar1);
+    // 添加
+    newVar1.add('三十天')
+    // 删除
+    newVar1.delete(1)
+    console.log(newVar1);
+     // 检测
+    newVar1.has('三十天')
+    // 清空
+    newVar1.clear();
+</script>
+
+</body>
+</html>

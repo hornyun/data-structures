@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Promiose.prototype.then</title>
+</head>
+<body>
+<script>
+    const P = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve('用户数据');
+        }, 1000)
+    });
+
+    // 调用 then 方法
+p.then( val => {
+    console.log(val);
+}, reason => {
+     console.log( reason)
+})
+</script>
+</body>
+</html>

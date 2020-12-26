@@ -1,0 +1,34 @@
+.myBox{
+    width: 100%;
+    height: 700px;
+    border: 1px solid red;
+    display: flex;
+}
+#silderLeft{
+    width: 250px;
+    height: 100%;
+    background-color: #999;
+    position: relative;
+    /* overflow-y: auto; */
+}
+/* 拖动条 */
+.moveBtn{
+    height: 100%;
+    width: 10px;
+    /* opacity: 0; */
+    position: absolute;
+    right: 0px;
+    top: 0;
+    cursor: col-resize;
+    background-color: yellow;
+}
+.menuList{
+    background-color: yellowgreen;
+    /* height: 120%; */
+}
+.silderRight{
+    height: 100%;
+    background-color: sandybrown;
+    flex: 1;
+}
+
