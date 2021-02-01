@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>traversal</title>
+    <script>
+      function  copy(){
+            const obj = new Object();
+          obj.name = '张三';
+          obj.age = 18;
+          obj.gender = '女';
+            const newVar = typeof (obj);
+          console.log('ver:', newVar);
+          const parse = JSON.parse(JSON.stringify(obj));
+          console.log('parse',parse);
+      }
+
+
+    </script>
+</head>
+<body>
+<button onclick="copy()">深度拷贝</button>
+</body>
+</html>

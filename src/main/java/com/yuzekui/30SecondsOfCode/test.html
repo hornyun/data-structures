@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数组</title>
+    <script>
+        // 返回数组中的最大值
+        const arrayMax = arr => Math.max(...arr);
+        const MAX = arrayMax([10, 1, 5]); // -> 10
+
+        // 返回数组中最小值
+        const arrayMin = arr => Math.min(...arr);
+        const MIN = arrayMin([10, 1, 5]); // -> 1
+
+        // 将数组划分为指定大小的数组
+        const chunk = (arr, size) =>
+            Array.from({length: Math.ceil(arr.length / size)}, (v, i) => arr.slice(i * size, i * size + size));
+        const chunks = chunk([1, 2, 3, 4, 5], 2); // -> 数组包含拆分数组 [[1,2],[3,4],[5]]
+
+        // 去除数组中判断为false的值 (false、null、 0、 ""、undefined和NaN).
+        const compact = (arr) => arr.filter(Boolean);
+        const arrCompact = compact([0, 1, false, 2, '', 3, 'a', 'e' * 23, NaN, 's', 34]); // -> [ 1, 2, 3, 'a', 's', 34 ]
+
+        document.write('最大值：',MAX);
+        document.write('最小值：',MIN);
+        chunks.forEach(e => document.write('分组：', e));
+        for (let arrCompactElement of arrCompact) {
+            console.log('compact函数—删除后的值',arrCompactElement);
+        }
+        // console.log('删除数组中false：',arrCompact);
+
+    </script>
+    <style></style>
+</head>
+<body>
+
+</body>
+</html>
