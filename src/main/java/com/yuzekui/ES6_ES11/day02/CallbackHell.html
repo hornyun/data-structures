@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>回调地狱</title>
+</head>
+<body>
+
+<script>
+    function one() {
+    setTimeout(() => {
+            console.log('11111')
+            iterator.next();
+    },
+    1000);
+    }function two() {
+    setTimeout(() => {
+            console.log('222222')
+            iterator.next();
+    },
+    2000);
+    }function three() {
+    setTimeout(() => {
+            console.log('33333333')
+            iterator.next();
+    },
+    3000);
+    }
+
+    function* gen() {
+        yield one();
+        yield two();
+        yield three();
+    }
+    // 调用生成器函数
+    let iterator = gen();
+    iterator.next();
+</script>
+
+</body>
+</html>

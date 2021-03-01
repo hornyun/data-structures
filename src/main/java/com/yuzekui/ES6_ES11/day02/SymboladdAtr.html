@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Symbol添加属性</title>
+
+</head>
+<body>
+<script>
+    let youxi = {
+    name:'gee',
+        [Symbol('say')]: function () {
+            console.log('我可以发言');
+
+        },
+        [Symbol('boom')]: function () {
+            console.log('boom boom boom')
+        }
+    }
+    console.log(youxi);
+    console.log(youxi.Symbol(boom));
+</script>
+</body>
+</html>

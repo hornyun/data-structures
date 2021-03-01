@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sort排序</title>
+    <script>
+    let arr = [
+        {name: 'aa',time: 3},{name: 'aa',time: 2},{name: 'aa',time: 6},{name: 'aa',time: 1},{name: 'aa',time: 8},{name: 'asada',time: 4},
+    ]
+    const sort = arr.sort((x1, x2) => x2.time - x1.time);
+    console.log('x2 - x1',sort);
+
+    const sort1 = arr.sort((x1, x2) => x1.time - x2.time);
+    console.log('x1 - x2',sort1)
+
+    var arr = [22,13,6,55,30];
+
+    console.log(Math.max(...arr)); // 55
+    </script>
+</head>
+<body>
+<input type="number">
+</body>
+</html>

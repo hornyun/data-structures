@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>键盘监听</title>
+    <script src="../../jsPackage/vue.js"></script>
+</head>
+<body>
+<div id="app">
+<!--    <button @keyup="fn()">案件触发</button>-->
+<!--    按 enter 触发-->
+<!--    <input type="text" @keyup.enter="fn1" v-model="text">-->
+    <input type="text" @keyup.f2="fn1" v-model="text">
+</div>
+
+</body>
+<script>
+    // 自定义键盘按键
+    // 把keycode码 113 变成 f2 使用
+    Vue.config.keyCodes.f2 = 113
+    let vue = new Vue({
+        el: '#app',
+        data: {
+            text: '测试'
+        },
+        methods: {
+            fn() {
+                alert('触发事件')
+            },
+            fn1() {
+                alert(this.text)
+            }
+        },
+    });
+
+</script>
+<style>
+
+</style>
+</html>

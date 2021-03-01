@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>多X轴</title>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <script src="echarts.min.js"></script>
+    <script src="JavaScript.js"></script>
+</head>
+<body>
+<div id="main" style="width: 100%;height:500px"></div>
+
+</body>
+<script>
+    $(function () {
+        let date = [
+            { date1: 0.7, date2: '1231', date3: '第二层1', date4: '第三层1', date5: '第四层1', date6: '第五层1' },
+            { date1: 0.5, date2: '8902422', date3: '第二层2', date4: '第三层1', date5: '第四层1', date6: '第五层1' },
+            { date1: 0.6, date2: '2342343', date3: '第二层1', date4: '第三层2', date5: '第四层1', date6: '第五层1' },
+            { date1: 0.8, date2: '2344', date3: '第二层1', date4: '第三层2', date5: '第四层1', date6: '第五层1' },
+            { date1: 0.1, date2: '2345', date3: '第二层1', date4: '第三层1', date5: '第四层2', date6: '第五层1' },
+            { date1: 0.6, date2: '4352', date3: '第二层1', date4: '第三层1', date5: '第四层2', date6: '第五层1' },
+            { date1: 0.6, date2: '87687', date3: '第二层1', date4: '第三层1', date5: '第四层2', date6: '第五层1' },
+            { date1: 0.6, date2: '5672', date3: '第二层1', date4: '第三层2', date5: '第四层2', date6: '第五层1' },
+            { date1: 0.6, date2: '4562', date3: '第二层2', date4: '第三层2', date5: '第四层2', date6: '第五层1' },
+            { date1: 0.6, date2: '344452', date3: '第二层1', date4: '第三层2', date5: '第四层2', date6: '第五层1' },
+            { date1: 0.6, date2: '792', date3: '第二层1', date4: '第三层1', date5: '第四层1', date6: '第五层2' },
+            { date1: 0.6, date2: '2342', date3: '第二层1', date4: '第三层1', date5: '第四层1', date6: '第五层2' },
+            { date1: 0.6, date2: '456', date3: '第二层1', date4: '第三层2', date5: '第四层1', date6: '第五层2' },
+            { date1: 0.6, date2: '456546', date3: '第二层2', date4: '第三层2', date5: '第四层1', date6: '第五层2' },
+            { date1: 0.6, date2: '332', date3: '第二层1', date4: '第三层1', date5: '第四层2', date6: '第五层2' },
+            { date1: 0.6, date2: '3452', date3: '第二层1', date4: '第三层1', date5: '第四层2', date6: '第五层2' },
+            { date1: 0.6, date2: '7845692', date3: '第二层1', date4: '第三层1', date5: '第四层2', date6: '第五层2' },
+            { date1: 0.6, date2: '4756', date3: '第二层3', date4: '第三层2', date5: '第四层2', date6: '第五层2' },
+            { date1: 0.6, date2: '7856792', date3: '第二层1', date4: '第三层2', date5: '第四层2', date6: '第五层2' },
+            { date1: 0.6, date2: '78979', date3: '第二层1', date4: '第三层2', date5: '第四层2', date6: '第五层2' }]
+
+        date = ListOrder(date, ['date1', 'date2', 'date3', 'date4', 'date5', 'date6']);
+        console.log('data???',data);
+
+        let series = [{
+            data: date[0],
+            type: 'scatter',
+            xAxisIndex: 0,
+            yAxisIndex: 0
+        }];
+
+        //第五层
+        $.each(date[5], function (nub, d) {
+            series.push(
+                {
+                    data: [{
+                        name: date[5][d].value,
+                        value: 1
+                    }],
+                    tooltip: {
+                        show: false
+                    },
+                    label: {
+                        show: true,
+                        position: 'inside',
+                        formatter: '{b}',
+                        offset: [0, 40],
+                        textStyle: {
+                            color: '#000'
+                        }
+                    },
+                    type: 'bar',
+                    barGap: 0,
+                    barWidth: date[5][d].nub / date[0].length * 100 + '%',
+                    itemStyle: {
+                        normal: {
+                            color: 'rgba(40,191,126, 0)',
+                            borderColor: '#000',
+                            borderWidth: 0.5,
+                        }
+                    },
+                    xAxisIndex: 4,
+                    yAxisIndex: 4
+                });
+        });
+        //第四层
+        $.each(date[4], function (nub, d) {
+            series.push(
+                {
+                    data: [{
+                        name: date[4][d].value,
+                        value: 1
+                    }],
+                    tooltip: {
+                        show: false
+                    },
+                    label: {
+                        show: true,
+                        position: 'inside',
+                        formatter: '{b}',
+                        offset: [0, 30],
+                        textStyle: {
+                            color: '#000'
+                        }
+                    },
+                    type: 'bar',
+                    barGap: 0,
+                    barWidth: date[4][d].nub / date[0].length * 100 + '%',
+                    itemStyle: {
+                        normal: {
+                            color: 'rgba(40,191,126, 0)',
+                            borderColor: '#000',
+                            borderWidth: 0.5,
+                        }
+                    },
+                    xAxisIndex: 3,
+                    yAxisIndex: 3
+                });
+        });
+        //第三层
+        $.each(date[3], function (nub, d) {
+            series.push(
+                {
+                    data: [{
+                        name: date[3][d].value,
+                        value: 1
+                    }],
+                    tooltip: {
+                        show: false
+                    },
+                    label: {
+                        show: true,
+                        position: 'inside',
+                        formatter: '{b}',
+                        offset: [0, 20],
+                        textStyle: {
+                            color: '#000'
+                        }
+                    },
+                    type: 'bar',
+                    barGap: 0,
+                    barWidth: date[3][d].nub / date[0].length * 100 + '%',
+                    itemStyle: {
+                        normal: {
+                            color: 'rgba(40,191,126, 0)',
+                            borderColor: '#000',
+                            borderWidth: 0.5,
+                        }
+                    },
+                    xAxisIndex: 2,
+                    yAxisIndex: 2
+                });
+        });
+        //第二层
+        $.each(date[2], function (nub, d) {
+            series.push({
+                data: [{
+                    name: date[2][d].value,
+                    value: 1
+                }],
+                tooltip: {
+                    show: false
+                },
+                label: {
+                    show: true,
+                    position: 'inside',
+                    formatter: '{b}',
+                    offset: [0, 10],
+                    textStyle: {
+                        color: '#000'
+                    }
+                },
+                type: 'bar',
+                barGap: 0,
+                barWidth: date[2][d].nub / date[0].length * 100 + '%',
+                itemStyle: {
+                    normal: {
+                        color: 'rgba(134,176,237, 0)',
+                        borderColor: '#000',
+                        borderWidth: 0.5,
+                    },
+
+                },
+                xAxisIndex: 1,
+                yAxisIndex: 1
+            });
+        });
+
+        option = {
+            title: {
+                text: '名称',
+                left: 'center',
+                top: 0
+            },
+            tooltip: {
+
+            },
+            grid: [
+                {
+                    top: 100,
+                    bottom: 101
+                },
+                {
+                    height: 40,
+                    bottom: 60
+                },
+                {
+                    height: 60,
+                    bottom: 40
+                },
+                {
+                    height: 80,
+                    bottom: 20
+                },
+                {
+                    height: 100,
+                    bottom: 0
+                },
+                {
+                    height: 100,
+                    bottom: 0
+                }
+            ],
+            xAxis: [{
+                type: 'category',
+                data: date[1],
+                gridIndex: 0,
+                zlevel: 5,
+                axisLabel: {
+                    interval: 0
+                }
+            }, {
+                type: 'category',
+                gridIndex: 1,
+                axisLine: {
+                    show: false,
+                },
+                zlevel: 4
+            }, {
+                type: 'category',
+                gridIndex: 2,
+                axisLine: {
+                    show: false,
+                },
+                zlevel: 3
+            }, {
+                type: 'category',
+                gridIndex: 3,
+                axisLine: {
+                    show: false,
+                },
+                zlevel: 2
+            }, {
+                type: 'category',
+                gridIndex: 4,
+                axisLine: {
+                    show: false,
+                },
+                zlevel: 5
+            }, {
+                type: 'category',
+                gridIndex: 5,
+                axisLine: {
+                    show: false,
+                },
+                zlevel: 1
+            }],
+            yAxis: [{
+                type: 'value',
+                gridIndex: 0,
+                name: '值',
+                axisLabel: {
+                    color: '#333'
+                },
+                splitLine: {
+                    lineStyle: {
+                        type: 'dashed'
+                    }
+                }
+            }, {
+                type: 'value',
+                gridIndex: 1,
+                axisLabel: {
+                    show: false
+                },
+                axisLine: {
+                    show: false
+                },
+                splitLine: {
+                    show: false
+                },
+                axisTick: {
+                    show: false
+                }
+            }, {
+                type: 'value',
+                gridIndex: 2,
+                axisLabel: {
+                    show: false
+                },
+                axisLine: {
+                    show: false
+                },
+                splitLine: {
+                    show: false
+                },
+                axisTick: {
+                    show: false
+                }
+            }, {
+                type: 'value',
+                gridIndex: 3,
+                axisLabel: {
+                    show: false
+                },
+                axisLine: {
+                    show: false
+                },
+                splitLine: {
+                    show: false
+                },
+                axisTick: {
+                    show: false
+                }
+            }, {
+                type: 'value',
+                gridIndex: 4,
+                axisLabel: {
+                    show: false
+                },
+                axisLine: {
+                    show: false
+                },
+                splitLine: {
+                    show: false
+                },
+                axisTick: {
+                    show: false
+                }
+            }, {
+                data: ['第五层', '第四层', '第三层', '第二层', '第一层'],
+                type: 'category',
+                gridIndex: 5,
+                axisLabel: {
+                    // show: false
+                },
+                axisLine: {
+                    show: false
+                },
+                splitLine: {
+                    show: false
+                },
+                axisTick: {
+                    show: false
+                }
+            }],
+            series: series
+        };
+
+
+        var myChart = echarts.init(document.getElementById('main'));
+        myChart.setOption(option);
+    });
+
+    function ListOrder(data, name) {
+        let order = [];
+        if (name.length == 6) {
+            let yData = [];
+            let xData1 = [];
+            let xData2 = [];
+            let xData3 = [];
+            let xData4 = [];
+            let xData5 = [];
+
+            $.each(data, function (nub, d) {
+                //值
+                yData.push(d[name[0]]);
+                //第一层
+                xData1.push(d[name[1]]);
+                //第五层
+                if (!xData5[d[name[5]]]) {
+                    let nubs = [value = '', nub = ''];
+                    nubs.value = d[name[5]];
+                    nubs.nub = 1;
+                    xData5[d[name[5]]] = nubs;
+                    xData5.push(d[name[5]]);
+                } else {
+                    xData5[d[name[5]]].nub++;
+                }
+
+                //第四层
+                if (!xData4[d[name[4]] + d[name[5]]]) {
+                    let nubs = [value = '', nub = ''];
+                    nubs.value = d[name[4]];
+                    nubs.nub = 1;
+                    xData4[d[name[4]] + d[name[5]]] = nubs;
+                    xData4.push(d[name[4]] + d[name[5]]);
+                } else {
+                    xData4[d[name[4]] + d[name[5]]].nub++;
+                }
+
+                //第三层
+                if (!xData3[d[name[3]] + d[name[4]] + d[name[5]]]) {
+                    let nubs = [value = '', nub = ''];
+                    nubs.value = d[name[3]];
+                    nubs.nub = 1;
+                    xData3[d[name[3]] + d[name[4]] + d[name[5]]] = nubs;
+                    xData3.push(d[name[3]] + d[name[4]] + d[name[5]]);
+                } else {
+                    xData3[d[name[3]] + d[name[4]] + d[name[5]]].nub++;
+                }
+
+                //第二层
+                if (!xData2[d[name[2]] + d[name[3]] + d[name[4]] + d[name[5]]]) {
+                    let nubs = [value = '', nub = ''];
+                    nubs.value = d[name[2]];
+                    nubs.nub = 1;
+                    xData2[d[name[2]] + d[name[3]] + d[name[4]] + d[name[5]]] = nubs;
+                    xData2.push(d[name[2]] + d[name[3]] + d[name[4]] + d[name[5]]);
+                } else {
+                    xData2[d[name[2]] + d[name[3]] + d[name[4]] + d[name[5]]].nub++;
+                }
+            });
+
+            order.push(yData);
+            order.push(xData1);
+            order.push(xData2);
+            order.push(xData3);
+            order.push(xData4);
+            order.push(xData5);
+        }
+        return order;
+    }
+
+</script>
+</html>

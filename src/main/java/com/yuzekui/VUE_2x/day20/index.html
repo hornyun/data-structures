@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>插槽</title>
+    <script src="../../jsPackage/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <father></father>
+
+</div>
+<template id="father">
+    <div>
+
+        <son>
+            <p>外衣</p>
+        </son>
+    </div>
+
+</template>
+<template id="son">
+    <div>
+        <p>头部</p>
+        <slot>默认衣服</slot>
+        <p>底部</p>
+    </div>
+
+</template>
+</body>
+<script>
+    Vue.component('father',{
+        template: '#father',
+        components:{
+            "son":{
+                template: '#son',
+
+            },
+        },
+    })
+
+    let vue = new Vue({
+        el: '#app',
+        data:{},
+        methods:{},
+        computed:{},
+        directives:{},
+        filters: {},
+    });
+</script>
+</html>

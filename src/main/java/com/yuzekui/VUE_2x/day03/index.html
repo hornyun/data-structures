@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>if_else</title>
+</head>
+<body>
+<div id="app">
+
+    <p v-if="age >= 18">{{name}}是成年人</p>
+    <p v-else>{{name}}是未成年人</p>
+
+    <p v-if="score > 80">优秀</p>
+    <p v-else-if="score > 70 && score <= 80">良好</p>
+    <p v-else>差</p>
+
+    <p v-show="state">显示1</p>
+    <p v-show="!state">显示2</p>
+    <ul>
+        <li v-for="(value, index) in list">{{value}}-------{{index}}</li>
+    </ul>
+
+    <ul>
+        <li v-for="(value,key) in obj">{{key}}======={{value}}</li>
+    </ul>
+
+</div>
+</body>
+    <script src="../../jsPackage/vue.js"></script>
+<script>
+
+    // v-for 类似于java中的 forin
+    // 可遍历 数组 对象 数字 字符串
+    let vue = new Vue({
+        el: '#app',
+        data: {
+            name: '张三',
+            age: 17,
+            score: 15,
+            state: false,
+            list: ['张三','李四','王五','赵六'],
+            obj: {
+                name: '阿里',
+                age: 19,
+                sex: 'boy',
+            }
+        }
+
+    });
+</script>
+<style>
+
+</style>
+</html>

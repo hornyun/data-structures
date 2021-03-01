@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>常用指令</title>
+    <script src="../../jsPackage/vue.js"></script>
+</head>
+<body>
+<div id="app">
+
+<div>{{text}}</div>
+<div v-html="text"></div>
+<div v-text="text"></div>
+
+    <input type="text" :value="text">
+
+<!--<p class="size color active">段落测试</p>-->
+
+<!--<p :class="['size','color','active']">绑定样式</p>-->
+
+
+<!--    利用三目运算符 判断绑定样式-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<p :class="['size','color',{'active' : true}]">绑定样式</p>-->
+<!--    {'绑定类名','状态值'}-->
+
+    <p :class="theme">绑定对象样式，适用于用户自定义样式</p>
+</div>
+
+
+</body>
+<script>
+
+    // 给属性绑数据，不能之间使用插值 {{}} v-text v-html 等方式
+    //v-bind 可以给属性绑定数据  ，v-model只能用 input/textare/select 标签绑定数据
+    //  v-bind:value  简写 :value
+    // 给v-bind 绑定的值 只要是一个合法的 JS表达式就可以
+
+    // v-bind绑定 style样式
+    // 注意点：
+    // 如果通过v-bind之间绑定样式选择器会失效，因为之间从 modol中去查找。所以赋值无效
+    // 注意点：如果想让v-bind去style去查找类名 那么必须把类名放到数组中，并且把每个样式用单引号引起了
+    let vue = new Vue({
+
+        el: '#app',
+        data: {
+            text: '张飞',
+            flag: false,
+            theme: {
+                'size': false,
+                'color': true,
+                'active': true,
+            },
+
+        }
+    });
+</script>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+
+    }
+
+    .size {
+        font-size: 100px;
+
+    }
+    .color {
+        color: rebeccapurple;
+    }
+    .active {
+        background-color: darkgoldenrod;
+    }
+</style>
+</html>

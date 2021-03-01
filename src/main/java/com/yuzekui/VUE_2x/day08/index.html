@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>插值语法特点</title>
+    <script src="../../jsPackage/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <p>{{name}}</p>
+    <p>{{age + 1}}</p>
+    <p>{{msg.split("").reverse().join("")}}</p>
+    <p>{{msg2}}</p>
+
+<!--    使用过滤器 person 会先经过过滤器在返回出来-->
+    <p>{{person | formatStr}}</p>
+</div>
+</body>
+<script>
+    // 插值方法其实可以在插值语法中写 js语法，不赞成使用
+    Vue.filter("formatStr",function (value) {
+        let v = value.replace(/司徒/g,"老师");
+        return v;
+    });
+
+    let vue = new Vue({
+        el: '#app',
+        data: {
+            name: '李毅',
+            age: 18,
+            msg: 'dasgsdahre',
+            person: "张司徒,王司徒,李司徒,何司徒,方司徒"
+
+        },
+
+        methods: {},
+
+        directives: {},
+        // 专门用于计算属性
+        // 计算属性特点:只要返回的结果没有发生变化，那么计算属性就指挥被执行一次
+        computed: {
+           /* 计算属性的特点:只要返回的结果没有发生变化，那么计算属性就只会被执行一次
+            计算属性的应用场景：由于计算属性会将返回的结果缓存起来
+            所以如果返回的数据不经常发生变化，
+            那么计算属性的性能就会比使用函数的性能高?*/
+            msg2: function () {
+                let s = 'abcdef'.split("").reverse().join("");
+                return s;
+            }
+        },
+    });
+</script>
+<style>
+
+</style>
+</html>

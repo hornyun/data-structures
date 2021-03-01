@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vuex</title>
+    <script src="../../jsPackage/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <father></father>
+</div>
+</body>
+<template id="father">
+    <div>
+        <son1 @parentchenge="change"></son1>
+        <son2></son2>
+    </div>
+</template>
+<template id="son1">
+    <div>
+         <button @click="add">增加</button>
+         <button @click="sub">减少</button>
+        <input type="text" value="" :value="count">
+    </div>
+</template>
+<template id="son2">
+
+    <div>son2</div>
+
+</template>
+<script>
+    Vue.component('father',{
+        template: "#father",
+        data: function () {
+            return{
+                num:0,
+            }
+        },
+        methods:{
+            change(newCount) {
+                this.num = newCount;
+            }
+        },
+        components:{
+            "son1":{
+                template: "#son1",
+                data: function () {
+                    return{
+                        count: 0
+                    }
+                },
+                methods: {
+                    add(){
+                        this.count = this.count + 1;
+                    },
+                    sub(){
+                        this.count = this.count - 1;
+                    },
+                },
+            },
+            "son2":{
+                template: "#son2",
+
+            },
+        },
+
+    })
+
+    let vue = new Vue({
+        el: '#app',
+        data:{
+            count:0,
+        },
+        methods:{},
+        component:{},
+        directives:{},
+    });
+</script>
+<style>
+
+</style>
+</html>

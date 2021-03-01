@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>flex</title>
+</head>
+<body>
+<div class="tabbox">
+    <div class="tb1"></div>
+    <div class="tb2"></div>
+    <div class="tb3"></div>
+</div>
+
+</body>
+<style>
+    * {
+        padding: 0px;
+        margin: 0px;
+    }
+    body:before {
+        height: 40%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: #128abc;
+        content: "";
+        z-index: -1;
+
+    }
+    .tabbox {
+        width: 500px;
+        height: 500px;
+        background-color: #b9c9c6;
+        box-shadow: 0px 0px 30px 2px black;
+        display: -webkit-flex;
+        overflow:hidden;
+        display: flex;
+        margin: 0 auto;
+
+    }
+    .tb1 {
+        background-color: #790fd5;
+        flex: 1;
+    }
+    .tb2 {
+        flex:2;
+        margin: 10px;
+
+        background-color: chartreuse;
+    }
+    .tb3 {
+        flex: 1;
+        margin: 10px;
+        background-color: chartreuse;
+    }
+</style>
+</html>

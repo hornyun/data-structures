@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>text_html</title>
+    <script src="../../jsPackage/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <div>{{name}}</div>
+    <div>{{msg}}</div>
+    <div v-text="name"></div>
+    <div v-text="msg"></div>
+    <div v-html="name"></div>
+    <div v-html="msg"></div>
+</div>
+
+
+</body>
+    <script>
+    let vue = new Vue({
+        el: '#app',
+        data: {
+            name:"测试",
+            msg: "<span id='col'>颜色</span>",
+        }
+    });
+</script>
+<style>
+    #col {
+        color: blue;
+    }
+</style>
+
+</html>
