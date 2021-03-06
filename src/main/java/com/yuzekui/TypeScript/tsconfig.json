@@ -1,0 +1,36 @@
+{
+  // tsconfig.json是ts编译器配置文件，ts编译器可以根据它的信息来对代码进行编译 ‘include’ 用来指定那些ts文件需要编译
+//  include 表示哪些ts需要编译
+  "include": [
+    "./src/**/*"
+    //  **表示任意目录
+    // *表示任意文件
+  ],
+//  exclude 表示那些文件不需要被编译
+  "exclude": [
+    "./src/hello/**/*"
+  ],
+//  "extends": "", 相当于继承那些配置文件懒得从新写，可以集成以前的
+
+//  "files": [] 单个文件选择继续宁编译
+
+//  编译器的选项
+//  所有检查都是编译阶段才会触发的选项
+  "compilerOptions": {
+    "target": "ES2015", //***表示编译目标 ES版本
+    "module": "ES2015", //按照哪个版本模块化标准
+    "lib": ["ES6","DOM"],// 指定项目中的库
+//    "outDir": "./dist",//指定编译后的文件放在哪个目录
+//    "outFile": "",//将代码合并成一个文件  结合打包工具使用
+    "allowJs": false,//是否对 target中目录中下 js进行编译  默认是 false
+    "checkJs": false,//是否检查JSdiamagnetic是否符合语法规范
+    "removeComments": false,//是否编译注释 默认false
+//    "noEmit": ture,//不生成编译后的文件 ，场景：用TS检查一下语法 就编译一下报错不报错 可以使用
+    "noEmitOnError": false,//当报错的时候文件不进行编译 避免又安全隐患的代码编译出来
+    "strict": false,//严格检查的总开关，如果打开 就是所有严格检查都打开。
+    "alwaysStrict": false,//严格模式，编译后的文件编程严格模式
+    "noImplicitAny": false,//检查是否存在 隐式any类型
+    "noImplicitThis": false,//检查this关键字 指向是否明确
+    "strictNullChecks": false //严格的检查空值
+  }
+}
