@@ -6,7 +6,7 @@ import org.apache.commons.lang3.ArrayUtils;
 /**
  * @author hornyun
  * @date 2020/10/15 11:38 下午
- *
+ * <p>
  * 稀疏组数的解压与压缩
  */
 public class SparseArrayStructure {
@@ -20,9 +20,9 @@ public class SparseArrayStructure {
     private static int[][] transferSparseArray(int[][] source) {
         if (source != null && source.length > 0) {
             int sum = 0;
-            for (int i = 0; i < source.length; i++) {
-                for (int j = 0; j < source[i].length; j++) {
-                    if (source[i][j] != 0) {
+            for (int[] ints : source) {
+                for (int anInt : ints) {
+                    if (anInt != 0) {
                         sum++;
                     }
                 }
@@ -50,10 +50,10 @@ public class SparseArrayStructure {
     }
 
     /**
-     * 稀疏数组 还原 为二维数组
+     * decompress spares array
      *
-     * @param source
-     * @return
+     * @param source sparse array
+     * @return origin array
      */
     private static int[][] parseSparseArray(int[][] source) {
         if (source != null && source.length > 0) {
@@ -68,10 +68,15 @@ public class SparseArrayStructure {
         return null;
     }
 
-    public static void main(String[] args) {
+    public static int[][] generateTest() {
         int[][] transferData = new int[11][11];
         transferData[1][2] = 1;
         transferData[2][3] = 2;
+        return transferData;
+    }
+
+    public static void main(String[] args) {
+        int[][] transferData = generateTest();
         int[][] sparseArray = transferSparseArray(transferData);
         String res = ArrayUtils.toString(sparseArray);
         System.out.println("原数组： " + ArrayUtils.toString(transferData));
